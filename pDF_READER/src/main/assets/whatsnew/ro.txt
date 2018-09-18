@@ -1,0 +1,6 @@
+* Cititor de carte modernă și cititor PDF pentru toată lumea 
+* Sortarea cărților după autor, gen, serie, cuvinte cheie 
+* Etichete personalizate pentru cărți 
+* Actualizare bibliotecă, navigare fișiere, marcaje, dicționare 
+* Două mod de coloană, 
+* Vă rugăm să scrieți despre experiența dvs. și să lăsați feedback

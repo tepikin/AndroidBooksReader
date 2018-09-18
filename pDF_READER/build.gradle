@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        applicationId "com.foobnix.pdf.reader"
+        minSdkVersion 15
+        targetSdkVersion 26
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile project(':cpu_x86')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:support-compat:26.1.0'
+
+    implementation project(':pDF_Engine')
+
+    implementation 'com.google.android.gms:play-services-plus:15.0.1'
+    implementation 'com.google.android.gms:play-services-auth:16.0.0'
+    implementation 'com.google.android.gms:play-services-base:15.0.1'
+    implementation 'com.google.android.gms:play-services-identity:15.0.1'
+    implementation 'com.google.android.gms:play-services-analytics:16.0.3'
+    implementation 'com.google.android.gms:play-services-awareness:15.0.1'
+    implementation 'com.google.android.gms:play-services-cast:16.0.2'
+    implementation 'com.google.android.gms:play-services-gcm:15.0.1'
+    implementation 'com.google.android.gms:play-services-drive:15.0.1'
+    implementation 'com.google.android.gms:play-services-fitness:15.0.1'
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
+    implementation 'com.google.android.gms:play-services-ads:15.0.1'
+    implementation 'com.google.android.gms:play-services-places:15.0.1'
+    implementation 'com.google.android.gms:play-services-vision:15.0.2'
+    implementation 'com.google.android.gms:play-services-nearby:15.0.1'
+    implementation 'com.google.android.gms:play-services-panorama:15.0.1'
+    implementation 'com.google.android.gms:play-services-games:15.0.1'
+    implementation 'com.google.android.gms:play-services-safetynet:15.0.1'
+    implementation 'com.google.android.gms:play-services-wallet:16.0.0'
+    implementation 'com.google.android.gms:play-services-wearable:15.0.1'
+}
