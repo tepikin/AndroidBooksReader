@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.foobnix.pdf.info"
+    package="com.foobnix.pdf.reader"
     android:installLocation="auto"
-    android:versionCode="670"
-    android:versionName="7.10.6" >
+    android:versionCode="676"
+    android:versionName="7.10.12" >
 
     <uses-sdk
-        android:minSdkVersion="15"
+        android:minSdkVersion="14"
         android:targetSdkVersion="27" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -33,9 +33,9 @@
                 android:resource="@xml/paths" />
         </provider>
 
-        <activity android:name="com.cloudrail.si.servicecode.commands.awaitCodeRedirect.AuthenticationActivity" />
-
-
+		<activity android:name="com.cloudrail.si.servicecode.commands.awaitCodeRedirect.AuthenticationActivity" />
+        
+                
         <activity
             android:name="com.foobnix.zipmanager.ZipActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
@@ -67,7 +67,7 @@
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity android:name="test.MimeTestActivity" >
-            <!--
+            <!-- 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -168,6 +168,14 @@
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
             </intent-filter>
         </service>
+        <service
+            android:name="com.foobnix.tts.TTSService"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </service>
 
         <receiver android:name="android.support.v4.media.session.MediaButtonReceiver" >
             <intent-filter>
@@ -184,18 +192,18 @@
             </intent-filter>
         </activity>
         <!--<activity-->
-        <!--android:name="com.test.TestAdsActivity"-->
-        <!--android:configChanges="orientation|screenSize|keyboard|keyboardHidden"-->
-        <!--android:exported="true"-->
-        <!--android:launchMode="singleTop"-->
-        <!--android:resizeableActivity="true"-->
-        <!--android:screenOrientation="behind"-->
-        <!--android:windowSoftInputMode="stateHidden" >-->
-        <!--<intent-filter>-->
-        <!--<action android:name="android.intent.action.MAIN1" />-->
+            <!--android:name="com.test.TestAdsActivity"-->
+            <!--android:configChanges="orientation|screenSize|keyboard|keyboardHidden"-->
+            <!--android:exported="true"-->
+            <!--android:launchMode="singleTop"-->
+            <!--android:resizeableActivity="true"-->
+            <!--android:screenOrientation="behind"-->
+            <!--android:windowSoftInputMode="stateHidden" >-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN1" />-->
 
-        <!--<category android:name="android.intent.category.LAUNCHER1" />-->
-        <!--</intent-filter>-->
+                <!--<category android:name="android.intent.category.LAUNCHER1" />-->
+            <!--</intent-filter>-->
         <!--</activity>-->
         <activity
             android:name="com.foobnix.ui2.MainTabs2"
@@ -230,17 +238,17 @@
 
                 <data android:mimeType="text/plain" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="com.foobnix.pdf.reader" />
-                <data android:scheme="librera" />
-            </intent-filter>
+             <intent-filter>
+		        <action android:name="android.intent.action.VIEW" />
+		        <category android:name="android.intent.category.DEFAULT" />
+		        <category android:name="android.intent.category.BROWSABLE" />
+		
+		        <data android:scheme="com.foobnix.pdf.reader" />
+		        <data android:scheme="librera" />
+		    </intent-filter>
         </activity>
-
-        <activity
+        
+         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="false"

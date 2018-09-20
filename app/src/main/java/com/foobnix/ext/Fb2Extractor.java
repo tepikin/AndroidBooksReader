@@ -580,10 +580,11 @@ public class Fb2Extractor extends BaseExtractor {
 
                 if (!isFindBodyEnd) {
 
-                    if (line.contains("</title>")) {
+                    int indexOf = line.indexOf("</title>");
+                    if (indexOf >= 0) {
                         ready = true;
                         count++;
-                        line = line.replace("</title>", "<a id=\"" + count + "\"></a></title>");
+                        line = line.substring(0, indexOf) + "<a id=\"" + count + "\"></a>" + line.substring(indexOf);
                     }
 
                     if (BookCSS.get().isCapitalLetter && ready) {
@@ -668,6 +669,27 @@ public class Fb2Extractor extends BaseExtractor {
             if (TempHolder.get().loadingCancelled) {
                 break;
             }
+            line = accurateLine(line);
+            line = HypenUtils.applyHypnes(line);
+            writer.write(line);
+        }
+        writer.close();
+        return out;
+    }
+
+    public static ByteArrayOutputStream generateHyphenFileEpubOld(InputStreamReader inputStream) throws Exception {
+        BufferedReader input = new BufferedReader(inputStream);
+
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        PrintWriter writer = new PrintWriter(out);
+        String line;
+
+        HypenUtils.applyLanguage(BookCSS.get().hypenLang);
+
+        while ((line = input.readLine()) != null) {
+            if (TempHolder.get().loadingCancelled) {
+                break;
+            }
 
             if (!line.endsWith(" ")) {
                 line = line + " ";
@@ -684,7 +706,7 @@ public class Fb2Extractor extends BaseExtractor {
                     line = "</" + subLine[i];
                 }
 
-                line = HypenUtils.applyHypnes(line);
+                line = HypenUtils.applyHypnesOld2(line);
                 writer.print(line);
             }
         }
