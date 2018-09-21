@@ -243,9 +243,9 @@ public class TTSService extends Service {
         }
 
         if (TTSNotification.TTS_PLAY_PAUSE.equals(intent.getAction())) {
-            TTSEngine.get().stop();
 
             if (TTSEngine.get().isPlaying()) {
+                TTSEngine.get().stop();
                 savePage();
             } else {
                 playPage("", AppState.get().lastBookPage, null);
@@ -461,7 +461,7 @@ public class TTSService extends Service {
                 });
             }
 
-            TTSNotification.show(AppState.get().lastBookPath, pageNumber + 1);
+            TTSNotification.show(AppState.get().lastBookPath, pageNumber + 1, dc.getPageCount());
 
             TTSEngine.get().speek(firstPart);
 

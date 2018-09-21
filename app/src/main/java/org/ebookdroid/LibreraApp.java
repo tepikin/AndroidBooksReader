@@ -31,7 +31,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.support.multidex.MultiDexApplication;
 
-public class LibreraApp extends MultiDexApplication{
+public class LibreraApp extends MultiDexApplication {
 
     static {
         System.loadLibrary("mypdf");
