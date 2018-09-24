@@ -42,6 +42,12 @@ android {
         abortOnError false
     }
 
+    sourceSets {
+        main.java.srcDirs += '..\\submodule_LibreraReader\\EBookDroid\\src'
+        main.assets.srcDirs += '..\\submodule_LibreraReader\\EbookaPDF\\assets'
+        main.res.srcDirs += '..\\submodule_LibreraReader\\EBookDroid\\res'
+        main.res.srcDirs += '..\\submodule_LibreraReader\\EbookaPDF\\res'
+    }
 
 }
 

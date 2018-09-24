@@ -1,0 +1,3 @@
+[submodule "submodule_LibreraReader"]
+	path = submodule_LibreraReader
+	url = https://github.com/tepikin/LibreraReader
