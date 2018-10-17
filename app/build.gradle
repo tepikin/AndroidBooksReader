@@ -76,7 +76,7 @@ dependencies {
     implementation 'com.android.support:customtabs:28+'
 
 //    implementation 'com.google.android.gms:play-services-analytics:+'
-    implementation 'com.google.android.gms:play-services-ads:+'
+    implementation 'com.google.android.gms:play-services-ads:16.0.0'
 
 
 }

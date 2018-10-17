@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.foobnix.pdf.info"
     android:installLocation="auto"
-    android:versionCode="687"
-    android:versionName="7.10.23" >
+    android:versionCode="707"
+    android:versionName="7.10.43" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -25,7 +25,7 @@
         android:theme="@style/StyledIndicatorsWhite" >
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.foobnix.pdf.reader.provider"
+            android:authorities="com.foobnix.pdf.info.provider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -93,11 +93,15 @@
             android:windowSoftInputMode="adjustPan" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <action android:name="android.intent.action.SENDTO" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:host="*" />
                 <data android:scheme="file" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
                 <data android:scheme="content" />
                 <data android:mimeType="application/x-fictionbook+xml" />
                 <data android:mimeType="application/x-fictionbook" />
@@ -116,6 +120,8 @@
                 <data android:mimeType="application/rtf" />
                 <data android:mimeType="application/x-rtf" />
                 <data android:mimeType="text/rtf" />
+                <data android:mimeType="text/*" />
+                <data android:mimeType="*/*" />
                 <data android:mimeType="text/richtext" />
                 <data android:mimeType="text/html" />
                 <data android:mimeType="multipart/related" />
@@ -129,11 +135,16 @@
                 <data android:mimeType="image/tiff" />
             </intent-filter>
             <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <action android:name="android.intent.action.SENDTO" />
                 <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:host="*" />
                 <data android:scheme="file" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
                 <data android:scheme="content" />
                 <data android:pathPattern=".*\\.txt" />
                 <data android:pathPattern=".*\\.epub" />
@@ -168,14 +179,14 @@
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
             </intent-filter>
         </service>
-        <service
-            android:name="com.foobnix.tts.TTSService"
-            android:enabled="true"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="android.intent.action.MEDIA_BUTTON" />
-            </intent-filter>
-        </service>
+        <!--<service-->
+            <!--android:name="com.foobnix.tts.TTSService"-->
+            <!--android:enabled="true"-->
+            <!--android:exported="false" >-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MEDIA_BUTTON" />-->
+            <!--</intent-filter>-->
+        <!--</service>-->
 
         <receiver android:name="android.support.v4.media.session.MediaButtonReceiver" >
             <intent-filter>
@@ -191,20 +202,7 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <!--<activity-->
-            <!--android:name="com.test.TestAdsActivity"-->
-            <!--android:configChanges="orientation|screenSize|keyboard|keyboardHidden"-->
-            <!--android:exported="true"-->
-            <!--android:launchMode="singleTop"-->
-            <!--android:resizeableActivity="true"-->
-            <!--android:screenOrientation="behind"-->
-            <!--android:windowSoftInputMode="stateHidden" >-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN1" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER1" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
         <activity
             android:name="com.foobnix.ui2.MainTabs2"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
