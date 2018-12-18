@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.foobnix.pdf.info"
     android:installLocation="auto"
-    android:versionCode="793"
-    android:versionName="7.11.37" >
+    android:versionCode="831"
+    android:versionName="7.12.5" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -136,6 +136,7 @@
                 <data android:mimeType="image/x.djvu" />
                 <data android:mimeType="text/plain" />
                 <data android:mimeType="image/tiff" />
+                <data android:mimeType="application/vnd.oasis.opendocument.text" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -162,12 +163,21 @@
                 <data android:pathPattern=".*\\.cbz" />
                 <data android:pathPattern=".*\\.cbr" />
                 <data android:pathPattern=".*\\.tiff" />
+                <data android:pathPattern=".*\\.odt" />
             </intent-filter>
         </activity>
 
         <service
             android:name="com.foobnix.ui2.BooksService"
             android:exported="false" >
+        </service>
+        <service
+            android:name="com.foobnix.tts.TTSService"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
         </service>
         <service
             android:name="com.foobnix.tts.TTSService"
@@ -191,6 +201,36 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.test.TestAdsActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:resizeableActivity="true"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="stateHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN1" />
+
+                <category android:name="android.intent.category.LAUNCHER1" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.foobnix.ui2.CloudrailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="com.foobnix.pdf.info" />
+                <data android:scheme="librera" />
+            </intent-filter>
+
         </activity>
         <activity
             android:name="com.foobnix.ui2.MainTabs2"
@@ -225,14 +265,7 @@
 
                 <data android:mimeType="text/plain" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="com.foobnix.pdf.info" />
-                <data android:scheme="librera" />
-            </intent-filter>
         </activity>
 
         <activity
